@@ -1,21 +1,20 @@
 p#notice
   = notice
-p
-  strong
-    | Title:
-  = @book.title
-p
-  strong
-    | Memo:
-  = @book.memo
-p
-  strong
-    | Author:
-  = @book.author
-p
-  strong
-    | Picture:
-  = image_tag(@book.picture_url) if @book.picture.present?
-= link_to 'Edit', edit_book_path(@book)
-|  | 
-= link_to 'Back', books_path
+h1= t('.title')
+table
+    tr
+      th= Book.human_attribute_name(:title)
+      td= @book.title
+    tr
+      th= Book.human_attribute_name(:memo)
+      td= @book.memo
+    tr
+      th= Book.human_attribute_name(:author)
+      td= @book.author
+    tr
+      th= Book.human_attribute_name(:picture)
+      td= image_tag(@book.picture_url) if @book.picture.present?
+
+= link_to t('view.book.link.edit'), edit_book_path(@book)
+|  |
+= link_to t('view.book.link.back'), books_path
