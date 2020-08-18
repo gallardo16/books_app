@@ -16,8 +16,12 @@ table
         td= book.memo
         td= book.author
         td= book.picture
-        td= link_to t('view.book.link.show'), book
-        td= link_to t('view.book.link.edit'), edit_book_path(book)
-        td= link_to t('view.book.link.destroy'), book, method: :delete, data: { confirm: t('view.book.confirm.destroy')}
+        td= link_to t('view.book.link.show'), book, class: 'btn btn-primary mr-1'
+        td= link_to t('view.book.link.edit'), edit_book_path(book), class: 'btn btn-primary mr-1'
+        td= link_to t('view.book.link.destroy'), book, method: :delete, data: { confirm: t('view.book.confirm.destroy')}, class: 'btn btn-primary'
 br
-= link_to t('view.book.link.new'), new_book_path
+= link_to t('view.book.link.new'), new_book_path, class: 'btn btn-primary ml-3'
+
+.m-3
+  = paginate @books
+  = page_entries_info @books
