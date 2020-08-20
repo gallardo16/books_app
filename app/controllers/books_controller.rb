@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  DISPLAY_NUMBER = 2
   def index
-    @books = Book.page(params[:page]).per(2)
+    @books = Book.page(params[:page]).per(DISPLAY_NUMBER)
   end
 
   def show
