@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_051702) do
+ActiveRecord::Schema.define(version: 2020_08_19_143929) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -20,5 +20,8 @@ ActiveRecord::Schema.define(version: 2020_08_01_051702) do
     t.string "author"
     t.string "picture"
   end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'sting' for column 'name'
 
 end
