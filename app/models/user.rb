@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :postalcode, length: { is: 7 }
+
+  has_many :books, dependent: :destroy
 end
