@@ -61,5 +61,9 @@ gem 'carrierwave'
 
 gem 'slim-rails'
 gem 'html2slim'
-gem 'kaminari'
+
+gem 'devise'
 gem 'bootstrap'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views'
+gem 'kaminari'

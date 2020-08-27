@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   DISPLAY_NUMBER = 2
   def index
-    @books = Book.page(params[:page]).per(DISPLAY_NUMBER)
+    @books = current_user.books.page(params[:page]).per(DISPLAY_NUMBER)
   end
 
   def show
@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
 
       if @book.save
         redirect_to @book, notice: t('view.book.flash.create')
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
 
   private
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     def book_params
