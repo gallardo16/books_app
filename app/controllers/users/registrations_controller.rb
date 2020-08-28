@@ -38,11 +38,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def build_resource(hash = {})
+    # 自作メソッドを使いuidを必ず埋める
+    hash[:uid] = User.create_unique_string
+    super
+  end
+
   protected
 
   def after_update_path_for(resource)
     user_path(id: current_user.id)
   end
+
+  def update_resource(resource, params)
+    return super if params["password"]&.present?
+    # 現在のパスワードなしでアカウントの更新をする
+    resource.update_without_password(params.except("current_password"))
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
