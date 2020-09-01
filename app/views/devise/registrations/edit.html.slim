@@ -31,6 +31,10 @@ h1
     = f.label :biography
     = f.text_area :biography, autocomplete: 'biography', class: 'form-control'
   .form-group
+    = f.label :avatar
+    = f.file_field :avatar, class: 'form-control-file'
+
+  .form-group
     = f.submit t('.update'), class: 'btn btn-primary'
 p
   = t('.unhappy')

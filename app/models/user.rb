@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :postalcode, length: { is: 7 }
 
   has_many :books, dependent: :destroy
+  has_one_attached :avatar
 end
