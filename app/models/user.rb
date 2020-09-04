@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
 
   has_many :books, dependent: :destroy
+  has_one_attached :avatar
 
   def self.find_for_github_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
