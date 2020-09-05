@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_135950) do
+ActiveRecord::Schema.define(version: 2020_09_05_095506) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2020_09_01_135950) do
     t.string "picture"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"following_id\", \"followedid\"", name: "index_friendships_on_following_id_and_followedid", unique: true
+    t.index ["followed_id"], name: "index_friendships_on_followed_id"
+    t.index ["following_id"], name: "index_friendships_on_following_id"
   end
 
 # Could not dump table "users" because of following StandardError
