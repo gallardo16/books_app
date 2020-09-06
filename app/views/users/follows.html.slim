@@ -1,0 +1,7 @@
+h1= t('.title')
+
+- @user.each do |user|
+  = link_to user.name, user, class: 'm-3'
+  br
+
+= link_to 'back', user_path(params[:id]), class: 'btn btn-primary'

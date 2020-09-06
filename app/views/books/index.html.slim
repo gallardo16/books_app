@@ -20,9 +20,11 @@ table
         td= link_to t('view.book.link.edit'), edit_book_path(book), class: 'btn btn-primary mr-1'
         td= link_to t('view.book.link.destroy'), book, method: :delete, data: { confirm: t('view.book.confirm.destroy')}, class: 'btn btn-primary'
 br
-= link_to t('view.book.link.new'), new_book_path, class: 'btn btn-primary ml-3'
-= link_to t('view.user.link.profile'), user_path(current_user.id), class: 'btn btn-warning ml-3'
-= link_to t('view.user.link.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-danger ml-3'
+= link_to t('view.book.link.new'), new_book_path, class: 'btn btn-primary m-3'
+br
+= link_to t('view.user.link.users'), users_path, class: 'btn btn-primary m-3'
+br
+= link_to t('view.user.link.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-danger m-3'
 
 .m-3
   = paginate @books
