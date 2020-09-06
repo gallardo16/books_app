@@ -4,4 +4,4 @@ h1= t('.title')
   = link_to user.name, user, class: 'm-3'
   br
 
-= link_to 'back', user_path(params[:id]), class: 'btn btn-primary'
+= link_to t('view.user.link.back'), user_path(params[:id]), class: 'btn btn-primary m-3'
