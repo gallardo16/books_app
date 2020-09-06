@@ -20,6 +20,8 @@ table
       th= User.human_attribute_name(:avatar)
       td= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) if @user.avatar.attached?
 
+= link_to t('view.user.link.books'), user_books_path(@user.id), class: 'btn btn-primary m-3'
+br
 = link_to t('view.user.link.follows'), follows_user_path(@user.id), class: 'btn btn-info m-3'
 = link_to t('view.user.link.followers'), followers_user_path(@user.id), class: 'btn btn-info m-3'
 br
