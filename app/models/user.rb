@@ -28,15 +28,7 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
-  def follow(other_user)
-    active_friendships.create(followed_id: other_user.id)
-  end
-
-  def unfollow(other_user)
-    active_friendships.find_by(followed_id: other_user.id).destroy
-  end
-
-  def following?(other_user)
-    followings.include?(other_user)
+  def following?(user)
+    passive_friendships.find_by(following_id: user.id).present?
   end
 end
