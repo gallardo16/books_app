@@ -1,6 +1,10 @@
 p#notice
   = notice
 h1= t('.title')
+
+.nav.justify-content-end
+  = link_to t('view.user.link.users'), users_path, class: 'nav-link'
+
 table
   thead
     tr
@@ -22,7 +26,8 @@ table
 br
 = link_to t('view.book.link.new'), new_book_path, class: 'btn btn-primary m-3'
 br
-= link_to t('view.user.link.users'), users_path, class: 'btn btn-primary m-3'
+= link_to t('view.user.link.follows'), follows_user_path(current_user.id), class: 'btn btn-info m-3'
+= link_to t('view.user.link.followers'), followers_user_path(current_user.id), class: 'btn btn-info m-3'
 br
 = link_to t('view.user.link.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-danger m-3'
 
