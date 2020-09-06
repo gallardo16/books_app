@@ -1,0 +1,16 @@
+h1= t('.title')
+table
+    tr
+      th= Book.human_attribute_name(:title)
+      td= @book.title
+    tr
+      th= Book.human_attribute_name(:memo)
+      td= @book.memo
+    tr
+      th= Book.human_attribute_name(:author)
+      td= @book.author
+    tr
+      th= Book.human_attribute_name(:picture)
+      td= image_tag(@book.picture_url) if @book.picture.present?
+
+= link_to t('view.user.link.back'), user_books_path, class: 'btn btn-primary m-4'

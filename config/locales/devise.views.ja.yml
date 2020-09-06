@@ -154,10 +154,11 @@ ja:
        profile_edit: プロフィール編集
        back: 戻る
        users: ユーザー一覧
-       follows: フォロー
-       followers: フォロワー
+       follows: フォロー一覧
+       followers: フォロワー一覧
        follow: フォローする
        unfollow: フォロー解除
+       books: 投稿一覧
   users:
     index:
       title: ユーザー一覧
@@ -167,4 +168,9 @@ ja:
       title: フォロー一覧
     followers:
       title: フォロワー一覧
+    books:
+      index:
+        title: 書籍一覧
+      show:
+        title: 書籍詳細
 
