@@ -15,6 +15,12 @@ ja:
         memo: 説明
         author: 著者
         picture: 画像
+      report: 日報
+    attributes:
+      report:
+        title: 題名
+        content: 内容
+        user: ユーザー
   books:
     index:
       title: 書籍一覧
@@ -24,6 +30,15 @@ ja:
       title: 書籍詳細
     edit:
       title: 書籍編集
+  reports:
+    index:
+      title: 日報一覧
+    new:
+      title: 日報作成
+    show:
+      title: 日報詳細
+    edit:
+      title: 日報編集
   view:
     book:
       link:
@@ -38,6 +53,15 @@ ja:
         destroy: 削除しました。
       confirm:
         destroy: 本当に削除しますか？
+    report:
+      link:
+        index: 日報一覧
+        new: 新規作成
+        back: 戻る
+        show: 詳細
+        edit: 編集
+        destroy: 削除
+        reports: 日報一覧
   date:
     abbr_day_names:
     - 日

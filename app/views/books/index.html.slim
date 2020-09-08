@@ -24,6 +24,9 @@ br
 = link_to t('view.user.link.profile'), user_path(current_user.id), class: 'btn btn-warning ml-3'
 = link_to t('view.user.link.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-danger ml-3'
 
+= link_to t('view.report.link.index'),reports_path, class: 'btn btn-primary ml-3'
+
+
 .m-3
   = paginate @books
   = page_entries_info @books
