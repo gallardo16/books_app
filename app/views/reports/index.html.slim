@@ -1,0 +1,24 @@
+h1= t('.title')
+
+table
+  thead
+    tr
+      th= Report.human_attribute_name(:user)
+      th= Report.human_attribute_name(:title)
+      th= Report.human_attribute_name(:content)
+  tbody
+    - @reports.each do |report|
+      tr
+        td = report.user.name
+        td = report.title
+        td = report.content
+
+        td = link_to t('view.report.link.show'), report, class: 'btn btn-primary mx-1'
+        td = link_to t('view.report.link.edit'), edit_report_path(report), class: 'btn btn-primary mx-1'
+        td = link_to t('view.report.link.destroy'), report, data: { confirm: t('view.report.confirm.destroy') }, method: :delete, class: 'btn btn-primary mx-1'
+
+br
+
+= link_to t('view.report.link.new'), new_report_path, class: 'btn btn-primary m-3'
+br
+= link_to t('view.book.link.back'), books_path, class: 'btn btn-primary m-3'

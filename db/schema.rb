@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_135950) do
+ActiveRecord::Schema.define(version: 2020_09_08_061723) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,8 +44,28 @@ ActiveRecord::Schema.define(version: 2020_09_01_135950) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_friendships_on_followed_id"
+    t.index ["following_id", "followed_id"], name: "index_friendships_on_following_id_and_followed_id", unique: true
+    t.index ["following_id"], name: "index_friendships_on_following_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'sting' for column 'name'
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reports", "users"
 end
