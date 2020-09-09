@@ -1,0 +1,7 @@
+h1= t('.title')
+
+- @user.each do |user|
+  = link_to user.name, user, class: 'm-3'
+  br
+
+= link_to t('view.user.link.back'), books_path, class: 'btn btn-primary m-4'
