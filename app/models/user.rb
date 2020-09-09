@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :comments, as: :commentable
   has_one_attached :avatar
 
   def self.find_for_github_oauth(auth)

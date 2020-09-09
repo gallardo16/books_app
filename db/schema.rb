@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_061723) do
+ActiveRecord::Schema.define(version: 2020_09_09_073223) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2020_09_08_061723) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.integer "following_id"
     t.integer "followed_id"
@@ -67,5 +78,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_061723) do
 #   Unknown type 'sting' for column 'name'
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
   add_foreign_key "reports", "users"
 end
