@@ -1,6 +1,4 @@
-p#notice = notice
 h1= t('.title')
-
 table
   tr
     th= Book.human_attribute_name(:title)
@@ -13,9 +11,7 @@ table
     td= @book.author
   tr
     th= Book.human_attribute_name(:picture)
-    td= image_tag(@book.picture_url, :size =>'150x150') if @book.picture.present?
-
-= link_to t('view.book.link.edit'), edit_book_path(@book), class: 'btn btn-primary m-3'
+    td= image_tag(@book.picture_url, :size => '150x150') if @book.picture.present?
 br
 h2= 'コメント'
 
@@ -35,4 +31,4 @@ table
 
 = link_to t('view.comment.link.new'), new_book_comment_path(@book.id), class: 'btn btn-primary m-3'
 
-= link_to t('view.book.link.back'), books_path, class: 'btn btn-primary m-3'
+= link_to t('view.user.link.back'), user_books_path, class: 'btn btn-primary m-4'

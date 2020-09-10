@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :comments, as: :commentable
   has_one_attached :avatar
 
+  has_many :active_friendships, foreign_key: "following_id", class_name: "Friendship", dependent: :destroy
+  has_many :followings, through: :active_friendships, source: :followed
+  has_many :passive_friendships, foreign_key: "followed_id", class_name: "Friendship", dependent: :destroy
+  has_many :followers, through: :passive_friendships, source: :following
+
   def self.find_for_github_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.name = auth.info.name
@@ -23,5 +28,9 @@ class User < ApplicationRecord
 
   def self.create_unique_string
     SecureRandom.uuid
+  end
+
+  def following?(user)
+    passive_friendships.find_by(following_id: user.id).present?
   end
 end

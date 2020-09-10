@@ -1,11 +1,13 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
+  DISPLAY_NUMBER = 10
   def index
-    @reports = Report.all
+    @reports = Report.page(params[:page]).per(DISPLAY_NUMBER)
   end
 
   def show
+    @comments = @report.comments
   end
 
   def new
@@ -36,7 +38,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.destroy
-    redirect_to reports_url, notice: t('view.report.destroy')
+    redirect_to reports_url, notice: t('view.report.flash.destroy')
   end
 
   private

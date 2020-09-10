@@ -20,5 +20,17 @@ table
       th= User.human_attribute_name(:avatar)
       td= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) if @user.avatar.attached?
 
-= link_to t('view.user.link.profile_edit'), edit_user_registration_path, class: 'btn btn-primary m-4'
-= link_to t('view.user.link.back'), books_path, class: 'btn btn-primary'
+= link_to t('view.user.link.books'), user_books_path(@user.id), class: 'btn btn-primary m-3'
+br
+= link_to t('view.user.link.follows'), follows_user_path(@user.id), class: 'btn btn-info m-3'
+= link_to t('view.user.link.followers'), followers_user_path(@user.id), class: 'btn btn-info m-3'
+br
+- if @user == current_user
+  = link_to t('view.user.link.profile_edit'), edit_user_registration_path, class: 'btn btn-primary m-4'
+- else
+  - if @user.following?(current_user)
+    = link_to t('view.user.link.unfollow'), user_friendships_path(@user.id), method: :delete, class: 'btn btn-danger m-4'
+  - else
+    = link_to t('view.user.link.follow'), user_friendships_path(@user.id), method: :post, class: 'btn btn-primary m-4'
+br
+= link_to t('view.user.link.back'), books_path, class: 'btn btn-primary m-4'

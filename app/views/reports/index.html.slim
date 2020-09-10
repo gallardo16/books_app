@@ -21,3 +21,7 @@ br
 = link_to t('view.report.link.new'), new_report_path, class: 'btn btn-primary m-3'
 br
 = link_to t('view.book.link.back'), books_path, class: 'btn btn-primary m-3'
+
+.m-3
+  = paginate @reports
+  = page_entries_info @reports
