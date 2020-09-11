@@ -40,6 +40,11 @@ ja:
       title: 日報詳細
     edit:
       title: 日報編集
+  comments:
+    new:
+      title: コメント作成
+    edit:
+      title: コメント編集
   view:
     book:
       link:
