@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: [:edit, :update, :destroy]
 
-  def index
-    @comments = @commentable.comments
-  end
-
   def new
     @comment = @commentable.comments.build
   end

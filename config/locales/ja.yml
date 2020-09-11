@@ -8,21 +8,17 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     models:
-      book: 本
+      book:
     attributes:
       book:
         title: 題名
         memo: 説明
         author: 著者
         picture: 画像
-      report: 日報
-    attributes:
       report:
         title: 題名
         content: 内容
         user: ユーザー名
-      comment:
-    attributes:
       comment:
         user: ユーザー名
         content: 内容
