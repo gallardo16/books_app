@@ -1,0 +1,5 @@
+= form_with(model: [@commentable, @comment], local: true) do |f|
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: 'form-control'
+  = f.submit nil, class: 'btn btn-primary m-3'

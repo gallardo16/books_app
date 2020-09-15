@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
 
   has_many :books, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many :comments, as: :commentable
   has_one_attached :avatar
 
   has_many :active_friendships, foreign_key: "following_id", class_name: "Friendship", dependent: :destroy
