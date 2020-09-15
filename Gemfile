@@ -71,3 +71,4 @@ gem 'kaminari'
 gem 'image_processing'
 gem 'omniauth'
 gem 'omniauth-github'
+gem "actionview", ">= 6.0.3.3"
