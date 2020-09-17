@@ -1,9 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  content: MyText
-
-two:
-  title: MyString
-  content: MyText
+report_1:
+  title: report1_title
+  content: report1_content
+  user_id: 2

@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  commentable: one
+book_comment:
+  content: 本のコメント
+  commentable_type: Book
+  commentable_id: 1
+  user_id: 2
 
-two:
-  content: MyText
-  commentable: two
+report_comment:
+  content: 日報のコメント
+  commentable_type: Report
+  commentable_id: 2
+  user_id: 1
