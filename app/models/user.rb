@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   validates :uid, presence: true, uniqueness: { scope: :provider }
-  validates :postalcode, length: { is: 7 }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
