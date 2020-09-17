@@ -1,45 +1,57 @@
 require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @book = books(:one)
+    @book = books(:book_1)
+    @user = users(:user_1)
+    sign_in  @user
   end
 
-  test "visiting the index" do
-    visit books_url
-    assert_selector "h1", text: "Books"
+  test '投稿された書籍一覧を表示する' do
+    visit books_path
+    assert_selector 'h1', text: '書籍一覧'
   end
 
-  test "creating a Book" do
-    visit books_url
-    click_on "New Book"
+  test '書籍を作成する'do
+    visit books_path
+    click_on '新規作成'
 
-    fill_in "Memo", with: @book.memo
-    fill_in "Title", with: @book.title
-    click_on "Create Book"
+    fill_in '題名', with: @book.title
+    fill_in '説明', with: @book.memo
+    fill_in '著者', with: @book.author
+    click_on '登録する'
 
-    assert_text "Book was successfully created"
-    click_on "Back"
+    assert_text '作成しました。'
   end
 
-  test "updating a Book" do
-    visit books_url
-    click_on "Edit", match: :first
-
-    fill_in "Memo", with: @book.memo
-    fill_in "Title", with: @book.title
-    click_on "Update Book"
-
-    assert_text "Book was successfully updated"
-    click_on "Back"
+  test '投稿された書籍の詳細を表示する' do
+    visit book_path(@book)
+    assert_selector 'h1', text: '書籍詳細'
+    assert_text 'book1_title'
+    assert_text 'book1_memo'
+    assert_text 'book1_author'
   end
 
-  test "destroying a Book" do
-    visit books_url
+  test '書籍を更新する' do
+    visit books_path
+    click_on '編集', match: :first
+
+    fill_in '題名', with: 'update_book1_title'
+    fill_in '説明', with: 'update_book1_description'
+    fill_in '著者', with: 'update_book1_author'
+    click_on '更新する'
+
+    assert_text '更新しました。'
+  end
+
+  test '書籍を削除する' do
+    visit books_path
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "削除", match: :first
     end
 
-    assert_text "Book was successfully destroyed"
+    assert_text "削除しました。"
   end
 end

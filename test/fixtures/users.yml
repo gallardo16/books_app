@@ -7,7 +7,7 @@
 user_1:
   id: 1
   name: user1
-  email: user11@example.com
+  email: user1@example.com
   encrypted_password: 111111
   postalcode: 1234567
   address: sample123
