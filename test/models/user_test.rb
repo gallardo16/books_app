@@ -8,15 +8,15 @@ class UserTest < ActiveSupport::TestCase
 
   test 'githubのoauth認証より登録済みユーザー情報を取得' do
     auth = OmniAuth::AuthHash.new(
-      uid: '1',
+      uid: 'uid_1',
       provider: 'github',
       info: {
         name: 'user_1',
-        email: 'user11@example.com'
+        email: 'user1@example.com'
       }
     )
     auth_user = User.find_for_github_oauth(auth)
-    assert @uesr1 == auth_user
+    assert @user1 == auth_user
   end
 
   test 'フォローされていると真を返す' do
