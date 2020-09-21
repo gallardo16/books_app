@@ -14,8 +14,8 @@ table
   tr
     th= Book.human_attribute_name(:picture)
     td= image_tag(@book.picture_url, :size =>'150x150') if @book.picture.present?
-
-= link_to t('view.book.link.edit'), edit_book_path(@book), class: 'btn btn-primary m-3'
+-if current_user == @book.user
+  = link_to t('view.book.link.edit'), edit_book_path(@book), class: 'btn btn-primary m-3'
 br
 h2= 'コメント'
 
