@@ -12,7 +12,6 @@ class UserFollowsTest < ApplicationSystemTestCase
     sign_in @user2
     visit user_path(@user1)
     click_on 'フォローする'
-#    assert_equal @user1, @user2.followings.first
     assert_includes @user2.followings, @user1
   end
 
