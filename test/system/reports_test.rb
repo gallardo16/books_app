@@ -11,14 +11,15 @@ class ReportsTest < ApplicationSystemTestCase
   test '日報一覧を表示する' do
     visit reports_path
     assert_selector 'h1', text: '日報一覧'
+    assert_selector 'td', text: 'report1_title'
   end
 
   test '日報を作成する' do
     visit reports_path
     click_on '新規作成'
 
-    fill_in '題名', with: @report.title
-    fill_in '内容', with: @report.content
+    fill_in '題名', with: 'new_report_title'
+    fill_in '内容', with: 'new_report_content'
     click_on '登録する'
 
     assert_text '作成しました。'

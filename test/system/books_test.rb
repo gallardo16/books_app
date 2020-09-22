@@ -12,15 +12,16 @@ class BooksTest < ApplicationSystemTestCase
   test '投稿された書籍一覧を表示する' do
     visit books_path
     assert_selector 'h1', text: '書籍一覧'
+    assert_selector 'td', text: 'book1_title'
   end
 
   test '書籍を作成する'do
     visit books_path
     click_on '新規作成'
 
-    fill_in '題名', with: @book.title
-    fill_in '説明', with: @book.memo
-    fill_in '著者', with: @book.author
+    fill_in '題名', with: 'new_book_title'
+    fill_in '説明', with: 'new_book_description'
+    fill_in '著者', with: 'new_book_author'
     click_on '登録する'
 
     assert_text '作成しました。'
