@@ -2,12 +2,10 @@
 
 book_comment:
   content: 本のコメント
-  commentable_type: Book
-  commentable_id: 1
+  commentable: book_1(Book)
   user_id: 2
 
 report_comment:
   content: 日報のコメント
-  commentable_type: Report
-  commentable_id: 2
+  commentable: report_1(Report)
   user_id: 1
