@@ -2,8 +2,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user1= users(:user_1)
-    @user2= users(:user_2)
+    @user1 = users(:user_1)
+    @user2 = users(:user_2)
   end
 
   test 'githubのoauth認証より登録済みユーザー情報を取得' do

@@ -6,7 +6,7 @@ class BooksTest < ApplicationSystemTestCase
   setup do
     @book = books(:book_1)
     @user = users(:user_1)
-    sign_in  @user
+    sign_in @user
   end
 
   test '投稿された書籍一覧を表示する' do
@@ -15,7 +15,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector 'td', text: 'book1_title'
   end
 
-  test '書籍を作成する'do
+  test '書籍を作成する' do
     visit books_path
     click_on '新規作成'
 
