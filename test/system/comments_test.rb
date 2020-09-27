@@ -17,7 +17,6 @@ class CommentsTest < ApplicationSystemTestCase
     visit book_path(@book)
     assert_selector 'h2', text: 'コメント'
     assert_selector 'td', text: '本のコメント'
-
   end
 
   test '書籍にコメントする' do
