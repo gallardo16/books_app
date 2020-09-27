@@ -3,9 +3,9 @@
 book_comment:
   content: 本のコメント
   commentable: book_1(Book)
-  user_id: 2
+  user: user_2
 
 report_comment:
   content: 日報のコメント
   commentable: report_1(Report)
-  user_id: 1
+  user: user_1

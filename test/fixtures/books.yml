@@ -4,4 +4,4 @@ book_1:
   title: book1_title
   memo: book1_memo
   author: book1_author
-  user_id: 1
+  user: user_1

@@ -1,5 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 friendships_1:
-  following_id: 1
-  followed_id: 2
+  following: user_1
+  followed: user_2

@@ -5,7 +5,6 @@
 # below each fixture, per the syntax in the comments below
 
 user_1:
-  id: 1
   name: user1
   email: user1@example.com
   encrypted_password: 111111
@@ -15,7 +14,6 @@ user_1:
   provider: github
 
 user_2:
-  id: 2
   name: user2
   email: user2@example.com
   encrypted_password: 222222

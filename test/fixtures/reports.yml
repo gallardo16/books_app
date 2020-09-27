@@ -3,4 +3,4 @@
 report_1:
   title: report1_title
   content: report1_content
-  user_id: 2
+  user: user_2
